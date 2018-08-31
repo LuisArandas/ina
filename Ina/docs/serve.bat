@@ -1,1 +1,0 @@
-java -jar "/Users/luisarandas/Desktop/InaModular/docs/skydocs.jar" serve

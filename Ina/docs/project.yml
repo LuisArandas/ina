@@ -1,7 +1,0 @@
-project_name: Ina 
-project_description: Documentation of Ina software
-project_url: https://www.luisarandas.org/ina
-
-default_language: en
-lunr_search: false
-default_order_alphabetical: false

@@ -1,1 +1,0 @@
-java -jar "/private/var/folders/m0/_nvdzmts3l78dw5dfwx705k80000gn/T/AppTranslocation/A9D6E729-9459-4EB4-96CF-8EB9BFBDACED/d/SkyDocs.app/Contents/Java/skydocs-0.7.3-all.jar" build
