@@ -8,4 +8,6 @@ use. Combining synthesis, drawing, and video mapping in one tool.
 All of the features will be explained here and further development
 will be documented as well.
 
-Documentation linked 
+Visit link below for full documentation
+
+https://ina.readthedocs.io/en/latest/index.html
