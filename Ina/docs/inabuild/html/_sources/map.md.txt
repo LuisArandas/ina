@@ -1,47 +1,21 @@
-# Intro
-
-.. highlight:: rst
-.. _toctree-directive:
-
-The TOC tree
+Mapping
 ============
 
-.. index:: pair: table of; contents
-
-Since reST does not have facilities to interconnect several documents, or split
-documents into multiple output files, Sphinx uses a custom directive to add
-relations between the single files the documentation is made of, as well as
-tables of contents.  The ``toctree`` directive is the central element.
-
-.. note::
-
-   Simple "inclusion" of one file in another can be done with the
-   :dudir:`include` directive.
-
-.. rst:directive:: toctree
-
-   This directive inserts a "TOC tree" at the current location, using the
-   individual TOCs (including "sub-TOC trees") of the documents given in the
-   directive body.  Relative document names (not beginning with a slash) are
-   relative to the document the directive occurs in, absolute names are relative
-   to the source directory.  A numeric ``maxdepth`` option may be given to
-   indicate the depth of the tree; by default, all levels are included. [#]_
-
-   Consider this example (taken from the Python docs' library reference index)::
-
-      .. toctree::
-         :maxdepth: 2
-
-         intro
-         strings
-         datatypes
-         numeric
-         (many more documents listed here)
+Ina software allows you to project and warp a mesh of the video you are generating using the conventional video mapping techniques
 
    This accomplishes two things:
 
-   * Tables of contents from all those documents are inserted, with a maximum
-     depth of two, that means one nested heading.  ``toctree`` directives in
+<aside class="notice">
+You must replace `meowmeowmeow` with your personal API key.
+</aside>
+
+Precise Mapping
+-------------
+<!---
+your comment goes here
+and here
+
+   * Being able to ok  ``toctree`` directives in
      those documents are also taken into account.
    * Sphinx knows that the relative order of the documents ``intro``,
      ``strings`` and so forth, and it knows that they are children of the shown
@@ -166,10 +140,10 @@ tables of contents.  The ``toctree`` directive is the central element.
 
    .. versionchanged:: 1.2
       Added "includehidden" option.
+-->
 
-Special names
--------------
 
+<!---
 Sphinx reserves some document names for its own use; you should not try to
 create documents with these names -- it will cause problems.
 
@@ -219,3 +193,5 @@ The special document names (and pages generated for them) are:
        constructs ``*``, ``?``, ``[...]`` and ``[!...]`` with the feature that
        these all don't match slashes.  A double star ``**`` can be used to match
        any sequence of characters *including* slashes.
+
+-->

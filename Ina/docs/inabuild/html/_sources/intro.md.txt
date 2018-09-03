@@ -1,4 +1,4 @@
-# Intro
+# intro
 
 .. highlight:: rst
 .. _toctree-directive:

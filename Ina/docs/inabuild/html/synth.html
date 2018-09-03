@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Synthesis &mdash; [Ina] Video Software 1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Drawing" href="draw.html" />
+    <link rel="prev" title="Interface" href="interface.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> [Ina] Video Software
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="interface.html">Interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Synthesis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#generator">Generator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vc">VC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tempo">Tempo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#js">JS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loadpatch">Loadpatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#edge">Edge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trace">Trace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="draw.html">Drawing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="map.html">Mapping</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route.html">Signal Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu.html">Menu Bar</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">[Ina] Video Software</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Synthesis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/synth.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="synthesis">
+<h1>Synthesis<a class="headerlink" href="#synthesis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="generator">
+<h2>Generator<a class="headerlink" href="#generator" title="Permalink to this headline">¶</a></h2>
+<p>The generator is based on VSynth main waveform generator (see analog LZX generators) and it’s normal controls.
+It is possible to choose the type of wave from Sine, Triangular, Ramp, Square and full Noise. Some controls are provided such as frequency and time.
+Also some of the mixer effects might be included for pre-processing.</p>
+<img alt="_images/interface8.png" class="align-center" src="_images/interface8.png" />
+<img alt="_images/interface29.png" class="align-center" src="_images/interface29.png" />
+</div>
+<div class="section" id="vc">
+<h2>VC<a class="headerlink" href="#vc" title="Permalink to this headline">¶</a></h2>
+<p>The VC is short for Voltage Control and works with 2 signals at the same time if the user wants. To merge more will be needed another module.</p>
+<a class="reference internal image-reference" href="_images/interface9.png"><img alt="_images/interface9.png" class="align-center" src="_images/interface9.png" style="width: 381px; height: 70px;" /></a>
+</div>
+<div class="section" id="tempo">
+<h2>Tempo<a class="headerlink" href="#tempo" title="Permalink to this headline">¶</a></h2>
+<p>Good for creating entrainment.</p>
+<a class="reference internal image-reference" href="_images/interface10.png"><img alt="_images/interface10.png" class="align-center" src="_images/interface10.png" style="width: 119px; height: 70px;" /></a>
+</div>
+<div class="section" id="js">
+<h2>JS<a class="headerlink" href="#js" title="Permalink to this headline">¶</a></h2>
+<p>JS is a module that allows the user to use javascript m.graphics() to graw directly to the mapping environment. It is provided an example for the user to test.
+It is possible to load external js files (need some specific functions to work).</p>
+<a class="reference internal image-reference" href="_images/interface11.png"><img alt="_images/interface11.png" class="align-center" src="_images/interface11.png" style="width: 381px; height: 177px;" /></a>
+<a class="reference internal image-reference" href="_images/interface30.png"><img alt="_images/interface30.png" class="align-center" src="_images/interface30.png" style="width: 642px; height: 504px;" /></a>
+</div>
+<div class="section" id="loadpatch">
+<h2>Loadpatch<a class="headerlink" href="#loadpatch" title="Permalink to this headline">¶</a></h2>
+<p>“loadpatch” allows the user to load external .maxpat files, Externals and Apps into the window of this module one can even scroll through the patch with an offset connection.
+Be sure that the patch loaded is in presentation mode. Also, it will be connected directly by Out[0] to the main out of this module.</p>
+<a class="reference internal image-reference" href="_images/interface12.png"><img alt="_images/interface12.png" class="align-center" src="_images/interface12.png" style="width: 551px; height: 246px;" /></a>
+<a class="reference internal image-reference" href="_images/interface31.png"><img alt="_images/interface31.png" class="align-center" src="_images/interface31.png" style="width: 551px; height: 246px;" /></a>
+</div>
+<div class="section" id="edge">
+<h2>Edge<a class="headerlink" href="#edge" title="Permalink to this headline">¶</a></h2>
+<p>Simple edge detector.</p>
+<a class="reference internal image-reference" href="_images/interface13.png"><img alt="_images/interface13.png" class="align-center" src="_images/interface13.png" style="width: 187px; height: 70px;" /></a>
+</div>
+<div class="section" id="trace">
+<h2>Trace<a class="headerlink" href="#trace" title="Permalink to this headline">¶</a></h2>
+<p>Based on matrix tracing from VIZZIE.</p>
+<a class="reference internal image-reference" href="_images/interface14.png"><img alt="_images/interface14.png" class="align-center" src="_images/interface14.png" style="width: 239px; height: 70px;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="draw.html" class="btn btn-neutral float-right" title="Drawing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="interface.html" class="btn btn-neutral" title="Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, LuisArandas.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
