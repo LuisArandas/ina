@@ -78,7 +78,13 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#### EM BAIXO
+html_theme = "alablaster"
+html_theme_path = ['themes']
+html_title = "Ina Documentation"
+html_theme_options = {
+    'logo': 'icon.png',
+    'github_repo': 'alabaster',
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -157,16 +163,5 @@ texinfo_documents = [
      author, 'ina', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-####TEMA
-
-html_theme = "alablaster"
-html_theme_path = ['themes']
-html_title = "Ina Documentation"
-html_theme_options = {
-    'logo': 'icon.png',
-    'github_user': 'bitprophet',
-    'github_repo': 'alabaster',
-}
 
 
