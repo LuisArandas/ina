@@ -10,7 +10,8 @@ All of the features will be explained here and further development
 will be documented as well.
 
 .. image:: images/intro.png
-  :scale: 30%
+  :height: 100px
+  :width: 200 px
   :align: center
 
 
