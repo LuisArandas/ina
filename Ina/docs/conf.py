@@ -162,4 +162,8 @@ texinfo_documents = [
 ####TEMA
 
 html_theme = "classic"
+html_theme_options = {
+    "rightsidebar": "true",
+    "relbarbgcolor": "black"
+}
 #"sphinx_rtd_theme"
