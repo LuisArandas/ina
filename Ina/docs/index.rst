@@ -7,10 +7,11 @@ that was developed to merge some features and tools that were
 found in other video softwares for a personal and/or commercial
 use. Combining synthesis, drawing, and video mapping in one tool.
 All of the features will be explained here and further development
-will be documented as well.
+will be documented as well. Test
 
 .. image:: images/intro.png
-  :scale: 50%
+  :width: 685
+  :height: 355
   :align: center
 
 
