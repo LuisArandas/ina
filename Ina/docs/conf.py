@@ -15,7 +15,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
+import guzzle_sphinx_theme
 
 # -- Project information -----------------------------------------------------
 
@@ -164,7 +164,7 @@ texinfo_documents = [
 #html_theme = "classic"
 #"sphinx_rtd_theme"
 
-import guzzle_sphinx_theme
+
 
 html_theme_path = guzzle_sphinx_theme.html_theme_path()
 html_theme = 'guzzle_sphinx_theme'
