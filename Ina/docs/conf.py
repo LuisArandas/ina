@@ -16,16 +16,17 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+
 # -- Project information -----------------------------------------------------
 
-project = u'[Ina] Video Software'
-copyright = u'2018, LuisArandas'
-author = u'LuisArandas'
+project = u'Ina'
+copyright = u'2018, luisArandas'
+author = u'luisArandas'
 
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'1'
+release = u'1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -41,18 +42,13 @@ extensions = [
 ]
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['inatemplates']
+templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-####PRSER
-source_parsers = {
-    '.md': 'recommonmark.parser.CommonMarkParser',
-}
-
-source_suffix = ['.rst', '.md']
-#source_suffix = '.rst'
+# source_suffix = ['.rst', '.md']
+source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
@@ -67,7 +63,7 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path .
-exclude_patterns = [u'inabuild', 'Thumbs.db', '.DS_Store']
+exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
@@ -78,6 +74,7 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
+html_theme = 'alabaster'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -88,7 +85,7 @@ pygments_style = 'sphinx'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['inastatic']
+html_static_path = ['_static']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -104,7 +101,7 @@ html_static_path = ['inastatic']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'inadoc'
+htmlhelp_basename = 'Inadoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -131,8 +128,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'ina.tex', u'ina Documentation',
-     u'LuisArandas', 'manual'),
+    (master_doc, 'Ina.tex', u'Ina Documentation',
+     u'luisArandas', 'manual'),
 ]
 
 
@@ -141,7 +138,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'ina', u'ina Documentation',
+    (master_doc, 'ina', u'Ina Documentation',
      [author], 1)
 ]
 
@@ -152,16 +149,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'ina', u'ina Documentation',
-     author, 'ina', 'One line description of project.',
+    (master_doc, 'Ina', u'Ina Documentation',
+     author, 'Ina', 'One line description of project.',
      'Miscellaneous'),
 ]
-
-html_theme = "alablaster"
-html_theme_path = ['themes']
-html_title = "Ina Documentation"
-html_theme_options = {
-    'logo': 'icon.png',
-    'github_repo': 'alabaster',
-}
-
