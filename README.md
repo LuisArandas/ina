@@ -1,5 +1,7 @@
 # Ina
 
+![Ina Logo](/Ina/logos/ina-32.png)
+
 This is the official repository of the Ina video synthesis 
 and mapping sofware. It is a free standalone software and tool
 that was developed to merge some features and tools that were 
