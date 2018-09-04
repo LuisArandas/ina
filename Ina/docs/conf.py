@@ -161,4 +161,5 @@ texinfo_documents = [
 
 ####TEMA
 
-html_theme = "sphinx_rtd_theme"
+html_theme = "classic"
+#"sphinx_rtd_theme"
