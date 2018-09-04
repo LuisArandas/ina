@@ -161,8 +161,10 @@ texinfo_documents = [
 ####TEMA
 
 html_theme = "alablaster"
+html_theme_path = ['themes']
+html_title = "Ina Documentation"
 html_theme_options = {
-    'logo': 'logo.png',
+    'logo': 'icon.png',
     'github_user': 'bitprophet',
     'github_repo': 'alabaster',
 }
