@@ -15,7 +15,6 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-import guzzle_sphinx_theme
 
 # -- Project information -----------------------------------------------------
 
@@ -162,6 +161,10 @@ texinfo_documents = [
 ####TEMA
 
 html_theme = "alablaster"
-#"sphinx_rtd_theme"
+html_theme_options = {
+    'logo': 'logo.png',
+    'github_user': 'bitprophet',
+    'github_repo': 'alabaster',
+}
 
 
