@@ -161,40 +161,7 @@ texinfo_documents = [
 
 ####TEMA
 
-#html_theme = "classic"
+html_theme = "alablaster"
 #"sphinx_rtd_theme"
 
 
-
-html_theme_path = guzzle_sphinx_theme.html_theme_path()
-html_theme = 'guzzle_sphinx_theme'
-
-# Register the theme as an extension to generate a sitemap.xml
-extensions.append("guzzle_sphinx_theme")
-
-# Guzzle theme options (see theme.conf for more information)
-html_theme_options = {
-    # Set the name of the project to appear in the sidebar
-    # Set the path to a special layout to include for the homepage
-    "index_template": "special_index.html",
-
-    # Set the name of the project to appear in the left sidebar.
-    "project_nav_name": "Ina",
-
-    # Set your Disqus short name to enable comments
-    "disqus_comments_shortname": "my_disqus_comments_short_name",
-
-    # Path to a touch icon
-    "touch_icon": "",
-
-    # Specify a base_url used to generate sitemap.xml links. If not
-    # specified, then no sitemap will be built.
-    "base_url": ""
-
-    # Allow a separate homepage from the master_doc
-    "homepage": "index",
-
-    # Allow the project link to be overriden to a custom URL.
-    "projectlink": "https://github.com/LuisArandas/ina",
-
-}
