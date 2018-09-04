@@ -10,8 +10,6 @@ All of the features will be explained here and further development
 will be documented as well. Test
 
 .. image:: images/intro.png
-  :width: 685
-  :height: 355
   :align: center
 
 
