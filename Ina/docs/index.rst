@@ -10,7 +10,7 @@ All of the features will be explained here and further development
 will be documented as well.
 
 .. image:: images/intro.png
-  :scale: 50%
+  :scale: 30%
   :align: center
 
 
