@@ -26,9 +26,7 @@ such as Scale and Translate.
 .. image:: images/interface22.png
     :align: center
 
-.. image:: images/Interface23.png
+.. image:: images/map.png
     :align: center
-
-
 
 
