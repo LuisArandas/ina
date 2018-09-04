@@ -79,7 +79,9 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 #
 
-html_theme = "alablaster"
+html_theme = "blue"
+html_theme_path = ["."]
+#html_theme = "alablaster"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
