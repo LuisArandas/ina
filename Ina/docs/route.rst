@@ -27,8 +27,6 @@ For the connection to happen (in both connectors (Main and Sampler)) one has to 
 
 .. image:: images/interface17.png
     :align: center
-    :width: 310
-    :height: 74
 
 Sampler IO
 -------------
@@ -38,5 +36,3 @@ and the user can get the ID of each module and route it to one or the other or t
 
 .. image:: images/interface18.png
     :align: center
-    :width: 298
-    :height: 39

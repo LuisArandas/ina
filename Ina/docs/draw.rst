@@ -10,8 +10,6 @@ with Human Interfaces such as drawing tables should be possible (get mouse contr
 The Clean and the Default buttons allow the interface to clean itself and to get back to the main state (blue)
 
 .. image:: images/interface15.png
-    :width: 315
-    :height: 243
     :align: center
 
 .. image:: images/interface16.png

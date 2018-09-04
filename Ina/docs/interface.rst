@@ -8,8 +8,6 @@ presentation domain, even though the user is completely free to make connections
 most probably will have a chapter on their own.
 
 .. image:: images/interface.png
-    :width: 685
-    :height: 355
     :align: center
 
 Video Mixer
@@ -37,8 +35,6 @@ for masking other video if the user wants.
 
 .. image:: images/interface3.png
     :align: center
-    :width: 214
-    :height: 309
 
 Here I show some examples of the [Interface1] module that allows the user to connect external devices and libraries such as Blackmagic 4K (example with 
 macbook pro built in camera) and control some parameters such HSL of the incomming feed. The video tab is a "drag-and-drop" module for external video files 
@@ -77,7 +73,5 @@ will have Spout too.
 
 .. image:: images/interface7.png
     :align: center
-    :width: 163
-    :height: 214
 
 This module also has important information on the computer usage (application %) and the Frame Rate alongside with the milisecond latency of the main video matrix.

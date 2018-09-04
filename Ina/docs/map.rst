@@ -14,8 +14,6 @@ The middle button with a knob allows the user to augment the circles for better 
 
 .. image:: images/interface21.png
     :align: center
-    :width: 320
-    :height: 255
 
 Precise Mapping
 -------------------------
@@ -27,13 +25,9 @@ such as Scale and Translate.
 
 .. image:: images/interface22.png
     :align: center
-    :width: 659
-    :height: 275
 
 .. image:: images/interface23.png
     :align: center
-    :width: 649
-    :height: 280
 
 
 

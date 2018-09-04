@@ -20,8 +20,6 @@ The VC is short for Voltage Control and works with 2 signals at the same time if
 
 .. image:: images/interface9.png
     :align: center
-    :width: 381
-    :height: 70
 
 Tempo
 -------------------------------
@@ -29,8 +27,6 @@ Good for creating entrainment.
 
 .. image:: images/interface10.png
     :align: center
-    :width: 119
-    :height: 70
 
 
 JS
@@ -40,13 +36,9 @@ It is possible to load external js files (need some specific functions to work).
 
 .. image:: images/interface11.png
     :align: center
-    :width: 381
-    :height: 177
 
 .. image:: images/interface30.png
     :align: center
-    :width: 642
-    :height: 504
 
 
 Loadpatch
@@ -56,13 +48,11 @@ Be sure that the patch loaded is in presentation mode. Also, it will be connecte
 
 .. image:: images/interface12.png
     :align: center
-    :width: 551
-    :height: 246
+
 
 .. image:: images/interface31.png
     :align: center
-    :width: 551
-    :height: 246
+
 
 Edge
 -------------------------------
@@ -70,8 +60,7 @@ Simple edge detector.
 
 .. image:: images/interface13.png
     :align: center
-    :width: 187
-    :height: 70
+
 
 Trace
 -------------------------------
@@ -79,5 +68,3 @@ Based on matrix tracing from VIZZIE.
 
 .. image:: images/interface14.png
     :align: center
-    :width: 239
-    :height: 70
