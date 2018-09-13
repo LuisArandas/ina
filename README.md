@@ -10,6 +10,8 @@ use. Combining synthesis, drawing, and video mapping in one tool.
 All of the features will be explained here and further development
 will be documented as well.
 
-Visit link below for full documentation
+Visit link below for full documentation & download
 
 https://ina.readthedocs.io/en/latest/index.html
+https://sourceforge.net/projects/inavideo/
+
