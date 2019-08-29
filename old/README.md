@@ -2,10 +2,7 @@
 
 ![Ina Logo](/Ina/logos/ina-32.png)
 
-CURRENTLY UNDER REBUILD_
-_____________________________
-
-This is the official repository of the Ina video synthesis
+This is the official repository of the Ina video synthesis 
 and mapping sofware. It is a free standalone software and tool
 that was developed to merge some features and tools that were 
 found in other video softwares for a personal and/or commercial
