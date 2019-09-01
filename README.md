@@ -2,7 +2,7 @@
 
 ![Ina Logo](/Ina/logos/ina-32.png)
 
-CURRENTLY UNDER REBUILD_
+CURRENTLY UNDER C++ REBUILD_
 _____________________________
 
 This is the official repository of the Ina video synthesis
