@@ -1,7 +1,0 @@
-ofxGLWarper
-ofxImGui
-ofxMidi
-ofxOpenCv
-ofxPoco
-ofxSvg
-ofxXmlSettings
