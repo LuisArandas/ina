@@ -110,6 +110,8 @@ class Warp : public std::enable_shared_from_this<Warp> {
     // Get mControlsX;
     int getControlsX() const { return mControlsX; };
     
+    //virtual void setControlsOnX(int e) { mControlsX = e; };
+    
 	//! Get the height of the content in pixels.
 	int getHeight() const { return mHeight; };
 	//! Get the width and height of the content in pixels.
@@ -148,7 +150,7 @@ class Warp : public std::enable_shared_from_this<Warp> {
 		mGamma.g = green;
 		mGamma.b = blue;
 	}
-
+    
 	//! Returns the edge blending curve exponent (1.0 = linear, 2.0 = quadratic).
 	virtual float getExponent() const { return mExponent; }
 	//! Set the edge blending curve exponent  (1.0 = linear, 2.0 = quadratic).
@@ -188,6 +190,8 @@ class Warp : public std::enable_shared_from_this<Warp> {
 
 	//! Adjusts both the source area and destination rectangle so that they are clipped against the warp's content.
 	bool clip( ci::Area &srcArea, ci::Rectf &destRect ) const;
+    
+    
 
 	//! Returns the coordinates of the specified control point.
 	virtual ci::vec2 getControlPoint( unsigned index ) const;
@@ -251,6 +255,7 @@ class Warp : public std::enable_shared_from_this<Warp> {
 
 	virtual void resize();
 	virtual void resize( const ci::ivec2 &size );
+    
 
   protected:
 	//! Draw the warp and its editing interface.
@@ -359,7 +364,7 @@ class WarpBilinear : public Warp {
 
     
 	//!
-	void setCurved( bool enabled = true )
+	virtual void setCurved( bool enabled = true )
 	{
 		mIsLinear = !enabled;
 		mIsDirty = true;

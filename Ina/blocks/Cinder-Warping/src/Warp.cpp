@@ -238,6 +238,8 @@ void Warp::setSize( int w, int h )
 	mIsDirty = true;
 }
 
+
+
 vec2 Warp::getControlPoint( unsigned index ) const
 {
 	if( index >= mPoints.size() )

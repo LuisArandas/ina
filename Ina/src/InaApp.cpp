@@ -3,9 +3,11 @@
 #include "cinder/app/Window.h"
 #include "cinder/gl/gl.h"
 #include "cinder/gl/Texture.h"
+#include "cinder/gl/GlslProg.h"
 #include "cinder/ImageIo.h"
 #include "cinder/Rand.h"
 #include "cinder/Surface.h"
+#include "cinder/Timeline.h"
 #include <list>
 
 #include "Warp.h"
@@ -22,6 +24,8 @@
 //Im gui keypress
 //Limpar isto
 //Prints da consola no ecrã
+//Quando editar retira a UI e
+//cria outra pequenita a direita
 
 using namespace ci;
 using namespace ci::app;
@@ -47,21 +51,34 @@ class InaApp : public App {
     void fileDrop( FileDropEvent event ) override;
     void loadMovieFile( const fs::path &path );
     void loadVideo();
-
     
 private:
     
-    gl::TextureRef    mImage;
-    gl::TextureRef            mFrameTexture;
-    qtime::MovieGlRef        mMovie;
+    
+    gl::TextureRef mImage;
+    gl::TextureRef mFrameTexture;
+    qtime::MovieGlRef mMovie;
 
     
-    fs::path        mSettings;
-    bool            mUseBeginEnd;
-    bool loaded = false;
-    WarpList        mWarps;
-    Area            mSrcArea;
+    fs::path mSettings;
+    WarpList mWarps;
     
+    bool mUseBeginEnd;
+    bool loaded = false;
+
+    Area mSrcArea;
+    Area mSrcAreaVideo;
+    Area mSrcAreaShader;
+    
+    
+    //Shader
+    gl::TextureRef mTexture0;
+    gl::TextureRef mTexture1;
+    
+    gl::GlslProgRef mShader;
+    
+    WarpBilinear bilinear;
+        
 };
 
 //------------------------------------------------------------------------------------------------
@@ -83,7 +100,6 @@ void InaApp::prepareSettings( Settings *settings ) {
 
 void InaApp::setup() {
     
-    
     ui::initialize();
     ci::gl::enableAlphaBlending();
 
@@ -94,31 +110,31 @@ void InaApp::setup() {
     if (fs::exists(mSettings)) {
         mWarps = Warp::readSettings(loadFile(mSettings));
     }
-
+    
     try {
         mImage = gl::Texture::create(loadImage(loadAsset("test.jpg")),
                                      gl::Texture2d::Format().loadTopDown().mipmap(true).minFilter(GL_LINEAR_MIPMAP_LINEAR));
         mSrcArea = mImage->getBounds();
+
+        mTexture0 = gl::Texture::create(loadImage(loadAsset("bottom.jpg")));
+        mTexture1 = gl::Texture::create(loadImage(loadAsset("top.jpg")));
+            
+        mShader = gl::GlslProg::create(loadAsset("shader.vert"), loadAsset("shader.frag"));
+        
     }
     
     catch( const std::exception &e ) {
         console() << e.what() << std::endl;
     }
     
+    
+
 }
     
 //------------------------------------------------------------------------------------------------
 
 void InaApp::cleanup(){
     //Warp::writeSettings( mWarps, writeFile( mSettings ) );
-}
-
-//------------------------------------------------------------------------------------------------
-
-
-void InaApp::mouseDown( MouseEvent event ) {
-    cout << "Ola! \n";
-    //sb::InputSimulation::keyTap(KeyEvent::KEY_F2);
 }
 
 //------------------------------------------------------------------------------------------------
@@ -168,7 +184,6 @@ void InaApp::update() {
     if (ui::Button("Enable Edit"))
         Warp::enableEditMode(!Warp::isEditModeEnabled());
     
-
     if (ui::Button("Vertical Sync"))
         gl::enableVerticalSync( !gl::isVerticalSyncEnabled() );
     ui::SameLine();
@@ -181,7 +196,6 @@ void InaApp::update() {
          ui::PopTextWrapPos();
          ui::EndTooltip();
      }
-    
     
     if (ui::Button("Add Gamma"))
         Warp::enableGammaMode(true);
@@ -224,13 +238,25 @@ void InaApp::update() {
     ui::SameLine();
     ui::Text("%d", counter);
     
-    if (ui::Button("Load"))
+    if (ui::Button("Load Video"))
         InaApp::loadVideo();
+    
+    if (ui::Button("Stop Video"))
+        mMovie->stop();
+    
+    if (ui::Button("Play Video"))
+        mMovie->play();
+    
+    if (ui::Button("Step Backward Frame"))
+        mMovie->stepBackward();
+    
+    if (ui::Button("Step Forward Frame"))
+        mMovie->stepForward();
+    
+    if (ui::Button("Video Rate"))
+        mMovie->setRate(0.5);
+        // If condition on the draw system
 
-    
-    
-        
-    //New window
     
     ui::SetNextWindowPos(ImVec2(getWindowWidth()-(getWindowWidth()/4), 0));
     ui::SetNextWindowSize(ImVec2(getWindowWidth()/4, getWindowHeight()));
@@ -284,6 +310,39 @@ void InaApp::update() {
         if (ui::Button("Cancel", ImVec2(120, 0))) { ui::CloseCurrentPopup(); }
         ui::EndPopup();
     }
+    if (ui::Button("Setting Edges"))
+        for( auto &warp : mWarps ) {
+            warp->setEdges(0.1, 0.1, 1., 1.); //LOOK AT THIS
+        }
+
+    if (ui::Button("DeselectControlPoint"))
+        for( auto &warp : mWarps ) {
+            //warp->keyDown(&event)
+            warp->deselectControlPoint();
+        }
+    
+    if (ui::Button("Size->Resolution"))
+        for( auto &warp : mWarps ) {
+            warp->setSize(500,500); // Resolution
+        }
+    if (ui::Button("Move"))
+        for( auto &warp : mWarps ) {
+            //warp->keyDown(&event)
+
+            vec2 size( warp->getSize() );
+            warp->setControlPoint(1, vec2(getWindowWidth()/4,getWindowWidth()-getWindowWidth()/4)/size);
+            // The positions
+        }
+    if (ui::Button("Luminance"))
+        for( auto &warp : mWarps ) {
+            warp->setLuminance(5); //Funciona melhor com o setEdges
+        }
+    if (ui::Button("Set"))
+
+        for( auto &warp : mWarps ) {
+            
+        }
+    
     
     if( mMovie )
         mFrameTexture = mMovie->getTexture();
@@ -295,8 +354,12 @@ void InaApp::update() {
             sPrintedDone = true;
         }
     }
-   
 }
+
+/*void InaApp::scale(float A, float A1, float A2, float Min, float Max){
+    long double percentage = (A-A1)/(A1-A2);
+    return (percentage) * (Min-Max)+Min;
+}*/
 
 //------------------------------------------------------------------------------------------------
 
@@ -304,6 +367,18 @@ void InaApp::update() {
 void InaApp::draw() {
     
     gl::clear(Color(0,0,0));
+    gl::color(0.1,0.1,0.1);
+    gl::drawSolidRect( Rectf( getWindowWidth()/2-getWindowWidth()/4,
+                             getWindowHeight(),
+                             getWindowWidth()/2+getWindowWidth()/4,
+                             getWindowHeight()-getWindowHeight()/10 ) );
+    
+    gl::color(0.1,0.1,0.1); // set color to blue
+    gl::drawSolidRect( Rectf( getWindowWidth()/2-getWindowWidth()/4,
+                             getWindowHeight()/2-getWindowHeight(),
+                             getWindowWidth()/2+getWindowWidth()/4,
+                             getWindowHeight()/10) );
+    gl::color(1,1,1);
     
     /* Warping */
     if( mImage ) {
@@ -313,11 +388,9 @@ void InaApp::draw() {
             if( mUseBeginEnd ) {
                 // a) issue your draw commands between begin() and end() statements
                 warp->begin();
-                
                 // in this demo, we want to draw a specific area of our image,
                 // but if you want to draw the whole image, you can simply use: gl::draw( mImage );
                 gl::draw( mImage, mSrcArea, warp->getBounds() );
-
                 warp->end();
             }
             else {
@@ -329,14 +402,34 @@ void InaApp::draw() {
         }
     }
     if( mFrameTexture ) {
-        Rectf centeredRect = Rectf(mFrameTexture->getBounds()).getCenteredFit( getWindowBounds(), false );
+        //Rectf centeredRect = Rectf(mFrameTexture->getBounds()).getCenteredFit( getWindowBounds(), false );
         //gl::draw( mFrameTexture, centeredRect );
+        mSrcAreaVideo = mFrameTexture->getBounds();
         for (auto &warp : mWarps){
             warp->begin();
-            gl::draw( mFrameTexture, mSrcArea, warp->getBounds() );
+            gl::draw( mFrameTexture, mSrcAreaVideo, warp->getBounds() );
             warp->end();
         }
     }
+    
+    if (mShader){
+        
+        mSrcAreaShader = mTexture1->getBounds();
+        for (auto &warp : mWarps){
+            warp->begin();
+            gl::ScopedGlslProg shader( mShader );
+            mShader->uniform( "tex0", 0 );
+            mShader->uniform( "tex1", 1 );
+            
+            gl::ScopedTextureBind tex0( mTexture0, uint8_t( 0 ) );
+            gl::ScopedTextureBind tex1( mTexture1, uint8_t( 1 ) );
+            gl::drawSolidRect(warp->getBounds());
+            
+            warp->end();
+        }
+        
+    }
+
 
 }
 
@@ -414,8 +507,7 @@ void InaApp::keyDown( KeyEvent event ) {
         }
     }
     if (event.getChar() == 'g'){
-        //gui->toggleVisible();    // gui interaction will be disabled when invisible
-        cout << "ok";
+        cout << "Pressed g";
     }
 }
 //------------------------------------------------------------------------------------------------
@@ -444,7 +536,8 @@ void InaApp::loadMovieFile( const fs::path &moviePath ) {
     try {
         // load up the movie, set it to loop, and begin playing
         mMovie = qtime::MovieGl::create( moviePath );
-        //mMovie->setLoop();
+        mMovie->setLoop(true, false);
+        mMovie->setVolume(0.f);
         mMovie->play();
         console() << "Playing: " << mMovie->isPlaying() << std::endl;
     }
@@ -475,5 +568,17 @@ void InaApp::loadVideo(){
 
 //------------------------------------------------------------------------------------------------
 
-CINDER_APP( InaApp, RendererGl( RendererGl::Options().msaa(16)), &InaApp::prepareSettings )
+
+void InaApp::mouseDown( MouseEvent event ) {
+   
+    //sb::InputSimulation::keyTap(KeyEvent::KEY_F2);
+}
+
+/*void SDAWarpingHydraApp::resize()
+ {
+ // tell the warps our window has been resized, so they properly scale up or down
+ Warp::handleResize(mWarps);
+ }*/
+
+CINDER_APP(InaApp, RendererGl(RendererGl::Options().msaa(16)), &InaApp::prepareSettings)
 

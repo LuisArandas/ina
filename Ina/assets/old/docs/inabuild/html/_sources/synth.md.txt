@@ -1,5 +1,0 @@
-Synthesis
-============
-.. image:: images/interface7.png
-    :align: center
-okok

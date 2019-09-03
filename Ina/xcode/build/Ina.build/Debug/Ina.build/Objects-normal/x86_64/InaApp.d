@@ -614,7 +614,9 @@ dependencies: \
   /Users/luisarandas/cinder_0.9.1_mac/myApps/Ina/xcode/Ina_Prefix.pch \
   /Users/luisarandas/cinder_0.9.1_mac/myApps/Ina/src/InaApp.cpp \
   ../../../include/cinder/app/RendererGl.h \
-  ../../../include/cinder/Rand.h \
+  ../../../include/cinder/Rand.h ../../../include/cinder/Timeline.h \
+  ../../../include/cinder/TimelineItem.h \
+  ../../../include/cinder/Easing.h ../../../include/cinder/Tween.h \
   /Users/luisarandas/cinder_0.9.1_mac/myApps/Ina/blocks/Cinder-Warping/include/Warp.h \
   /Users/luisarandas/cinder_0.9.1_mac/myApps/Ina/blocks/ImGui/include/CinderImGui.h \
   ../blocks/ImGui/include/CinderImGuiExports.h \
