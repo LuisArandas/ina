@@ -244,6 +244,36 @@ void WarpPerspective::keyDown( KeyEvent &event )
 
 	event.setHandled( true );
 }
+    
+void WarpPerspective::keyboardPress_F10() {
+    std::swap( mPoints[1], mPoints[2] );
+    std::swap( mPoints[0], mPoints[1] );
+    std::swap( mPoints[3], mPoints[0] );
+    mSelected = ( mSelected + 1 ) % 4;
+    mIsDirty = true;
+}
+void WarpPerspective::keyboardPress_F11() {
+    std::swap( mPoints[3], mPoints[0] );
+    std::swap( mPoints[0], mPoints[1] );
+    std::swap( mPoints[1], mPoints[2] );
+    mSelected = ( mSelected + 3 ) % 4;
+    mIsDirty = true;
+}
+void WarpPerspective::keyboardPress_F12() {
+    std::swap( mPoints[0], mPoints[1] );
+    std::swap( mPoints[2], mPoints[3] );
+    if( mSelected % 2 )
+        mSelected--;
+    else
+        mSelected++;
+    mIsDirty = true;
+}
+void WarpPerspective::keyboardPress_F13() {
+    std::swap( mPoints[0], mPoints[3] );
+    std::swap( mPoints[1], mPoints[2] );
+    mSelected = ( (unsigned)mPoints.size() - 1 ) - mSelected;
+    mIsDirty = true;
+}
 
 // Adapted from code found here: http://forum.openframeworks.cc/t/quad-warping-homography-without-opencv/3121/19
 mat4 WarpPerspective::getPerspectiveTransform( const vec2 src[4], const vec2 dst[4] ) const

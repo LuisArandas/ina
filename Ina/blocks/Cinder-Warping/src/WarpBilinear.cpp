@@ -337,6 +337,95 @@ void WarpBilinear::keyDown( KeyEvent &event )
 
 	event.setHandled( true );
 }
+    
+void WarpBilinear::keyboardPress_M() {
+    mIsLinear = !mIsLinear;
+    mIsDirty = true;
+}
+    
+
+    
+void WarpBilinear::keyboardPress_F1() {
+    vec2  pt = (ivec2)mMouse; // 2x but still
+    float distance;
+    setNumControlX( mControlsX - 1 );
+    // find closest control point
+    mSelected = findControlPoint( pt, &distance );
+}
+
+void WarpBilinear::keyboardPress_F2() {
+    vec2  pt = (ivec2)mMouse; // 2x but still
+    float distance;
+    setNumControlX( mControlsX + 1 );
+    // find closest control point
+    mSelected = findControlPoint( pt, &distance );
+}
+    
+void WarpBilinear::keyboardPress_F3(){
+    vec2  pt = (ivec2)mMouse; // 2x but still
+    float distance;
+    setNumControlY( mControlsY - 1 );
+    // find closest control point
+    mSelected = findControlPoint( pt, &distance );
+}
+void WarpBilinear::keyboardPress_F4(){
+    vec2  pt = (ivec2)mMouse; // 2x but still
+    float distance;
+    setNumControlY( mControlsY + 1 );
+    // find closest control point
+    mSelected = findControlPoint( pt, &distance );
+}
+void WarpBilinear::keyboardPress_F5(){
+    if( mResolution < 64 ) {
+        mResolution += 4;
+        mIsDirty = true;
+    }
+}
+void WarpBilinear::keyboardPress_F6(){
+    if( mResolution > 4 ) {
+        mResolution -= 4;
+        mIsDirty = true;
+    }
+}
+void WarpBilinear::keyboardPress_F7(){
+    mIsAdaptive = !mIsAdaptive;
+    mIsDirty = true;
+}
+    
+void WarpBilinear::keyboardPress_F8(){
+    vec2  pt = (ivec2)mMouse; // 2x but still
+    float distance;
+    std::vector<vec2> points;
+    for( int x = mControlsX - 1; x >= 0; --x ) {
+        for( int y = 0; y < mControlsY; ++y ) {
+            int i = ( x * mControlsY + y );
+            points.push_back( mPoints[i] );
+        }
+    }
+    mPoints = points;
+    mIsDirty = true;
+    // find closest control point
+    mSelected = findControlPoint( pt, &distance );
+}
+    
+void WarpBilinear::keyboardPress_F9(){
+    vec2  pt = (ivec2)mMouse; // 2x but still
+    float distance;
+    std::vector<vec2> points;
+    for( int x = 0; x < mControlsX; ++x ) {
+        for( int y = mControlsY - 1; y >= 0; --y ) {
+            int i = ( x * mControlsY + y );
+            points.push_back( mPoints[i] );
+        }
+    }
+    mPoints = points;
+    mIsDirty = true;
+    // find closest control point
+    mSelected = findControlPoint( pt, &distance );
+}
+
+
+    
 
 void WarpBilinear::createBuffers()
 {

@@ -386,6 +386,19 @@ class WarpBilinear : public Warp {
 	void setNumControlY( int n );
 	//!
 	void setTexCoords( float x1, float y1, float x2, float y2 );
+    
+    /* Implementation of Keyboard Methods */
+    void keyboardPress_M(); // Linearidade nos breaks
+    void keyboardPress_F1(); // Tira em X
+    void keyboardPress_F2(); // Adiciona em X
+    void keyboardPress_F3(); // Tira os verticais
+    void keyboardPress_F4(); // Adiciona Verticais
+    void keyboardPress_F5(); // Tira qualidade à mesh
+    void keyboardPress_F6(); // Adiciona qualidade a mesh
+    void keyboardPress_F7(); // Resolução da mesh adaptativa
+    void keyboardPress_F8(); // flip control points horizontally
+    void keyboardPress_F9(); // flip control points vertical
+
 
 	virtual void keyDown( ci::app::KeyEvent &event ) override;
 
@@ -396,6 +409,9 @@ class WarpBilinear : public Warp {
 	void createShader();
 	//! Creates the frame buffer object and updates the vertex buffer object if necessary.
 	void createBuffers();
+    
+
+
 	//! Creates the vertex buffer object.
 	void createMesh( int resolutionX = 36, int resolutionY = 36 );
 	//! Updates the vertex buffer object based on the control points.
@@ -473,9 +489,15 @@ class WarpPerspective : public Warp {
 
 	//! Override keyDown method to add additional key handling.
 	void keyDown( ci::app::KeyEvent &event ) override;
+    
+    void keyboardPress_F10(); //rotate content ccw
+    void keyboardPress_F11(); //rotate content cw
+    void keyboardPress_F12(); //flip content horizontally
+    void keyboardPress_F13(); //flip content vertically
 
 	//! Allow WarpPerspectiveBilinear to access the protected class members.
 	friend class WarpPerspectiveBilinear;
+    
 
   protected:
 	//!
@@ -488,6 +510,7 @@ class WarpPerspective : public Warp {
 
 	//!
 	void createShader();
+    
 
   protected:
 	ci::vec2 mSource[4];

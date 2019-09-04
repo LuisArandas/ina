@@ -26,6 +26,8 @@
 //Prints da consola no ecrã
 //Quando editar retira a UI e
 //cria outra pequenita a direita
+//capture basic
+//basic app window <- check the drawing
 
 using namespace ci;
 using namespace ci::app;
@@ -337,13 +339,107 @@ void InaApp::update() {
         for( auto &warp : mWarps ) {
             warp->setLuminance(5); //Funciona melhor com o setEdges
         }
-    if (ui::Button("Set"))
+    
+    
+    
+    if (ui::Button("+10 em X"))
 
-        for( auto &warp : mWarps ) {
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
             
+            if(bilinear)
+                bilinear->setNumControlX(10);
         }
-    
-    
+    if (ui::Button("+10 em Y"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->setNumControlY(10);
+        }
+    if (ui::Button("Tira em X -1"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F1();
+        }
+    if (ui::Button("Adiciona em X +1"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F2();
+        }
+    if (ui::Button("Tira em Y -1"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F3();
+        }
+    if (ui::Button("Adiciona em Y +1"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F4();
+        }
+    if (ui::Button("Tira Qualidade"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F5();
+        }
+    if (ui::Button("Adiciona Qualidade"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F6();
+        }
+    if (ui::Button("Resolução da meshADAPT"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F7();
+        }
+    if (ui::Button("Vira a Mesh Horiz"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F8();
+        }
+    if (ui::Button("Vira a Mesh Vert"))
+        
+        for (auto &warp : mWarps) {
+            auto bilinear = std::dynamic_pointer_cast<WarpBilinear>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F9();
+        }
+    if (ui::Button("Roda Conteudo CW"))
+        
+        for (auto &warp : mWarps) {
+            warp->PERSPECTIVE;
+            auto bilinear = std::dynamic_pointer_cast<WarpPerspective>(warp);
+            
+            if(bilinear)
+                bilinear->keyboardPress_F11();
+        }
+            
     if( mMovie )
         mFrameTexture = mMovie->getTexture();
     
@@ -356,10 +452,6 @@ void InaApp::update() {
     }
 }
 
-/*void InaApp::scale(float A, float A1, float A2, float Min, float Max){
-    long double percentage = (A-A1)/(A1-A2);
-    return (percentage) * (Min-Max)+Min;
-}*/
 
 //------------------------------------------------------------------------------------------------
 
@@ -412,7 +504,7 @@ void InaApp::draw() {
         }
     }
     
-    if (mShader){
+    /*if (mShader){
         
         mSrcAreaShader = mTexture1->getBounds();
         for (auto &warp : mWarps){
@@ -428,7 +520,7 @@ void InaApp::draw() {
             warp->end();
         }
         
-    }
+    }*/
 
 
 }
