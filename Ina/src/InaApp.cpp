@@ -312,10 +312,6 @@ void InaApp::update() {
         if (ui::Button("Cancel", ImVec2(120, 0))) { ui::CloseCurrentPopup(); }
         ui::EndPopup();
     }
-    if (ui::Button("Setting Edges"))
-        for( auto &warp : mWarps ) {
-            warp->setEdges(0.1, 0.1, 1., 1.); //LOOK AT THIS
-        }
 
     if (ui::Button("DeselectControlPoint"))
         for( auto &warp : mWarps ) {
@@ -430,16 +426,51 @@ void InaApp::update() {
             if(bilinear)
                 bilinear->keyboardPress_F9();
         }
-    if (ui::Button("Roda Conteudo CW"))
+    /*if (ui::Button("Roda Conteudo CW"))
         
         for (auto &warp : mWarps) {
-            warp->PERSPECTIVE;
             auto bilinear = std::dynamic_pointer_cast<WarpPerspective>(warp);
             
             if(bilinear)
-                bilinear->keyboardPress_F11();
-        }
+                bilinear->keyboardPress_F10();
             
+        }*/
+    
+    if (ui::Button("SET EDGES - START"))
+        for( auto &warp : mWarps ) {
+            warp->setEdges(0, 0, 0, 0);
+        }
+    
+    static float f3 = 0.1f;
+    static float f4 = 0.1f;
+    static float f2 = 0.1f;
+    static float f1 = 0.1f;
+    
+    ui::SliderFloat("", &f1, 0.0f, 1.0f, "X1 - %.3f");
+        for( auto &warp : mWarps ) {
+            warp->setEdges(f1, 0.1, 0.1, 0.1);
+        }
+
+    ui::SliderFloat("", &f2, 0.0f, 1.0f, "X2 - %.3f");
+        for( auto &warp : mWarps ) {
+            warp->setEdges(0.1, f2, 0.1, 0.1);
+        }
+
+    ui::SliderFloat("", &f3, 0.0f, 1.0f, "X3 - %.3f");
+        for( auto &warp : mWarps ) {
+            warp->setEdges(0.1, 0.1, f3, 0.1);
+        }
+    
+    ui::SliderFloat("", &f4, 0.0f, 1.0f, "X4 - %.3f");
+        for( auto &warp : mWarps ) {
+            warp->setEdges(0.1, 0.1, 0.1, f4);
+        }
+    
+    //ui::SliderFloat("slider float (curve)", &f2, -10.0f, 10.0f, "%.4f", 2.0f);
+    
+    
+
+    
     if( mMovie )
         mFrameTexture = mMovie->getTexture();
     
